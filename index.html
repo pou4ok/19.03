@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Логические операторы JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Логические операторы в JavaScript</h1>
+
+        <!-- Теория -->
+        <div class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="operators-grid">
+                <div class="operator-card">
+                    <h3>&& (И)</h3>
+                    <p>Возвращает true, если все операнды истинны</p>
+                    <div class="code-block">
+                        true && true → true<br>
+                        true && false → false<br>
+                        false && true → false
+                    </div>
+                </div>
+
+                <div class="operator-card">
+                    <h3>|| (ИЛИ)</h3>
+                    <p>Возвращает true, если хотя бы один операнд истинный</p>
+                    <div class="code-block">
+                        true || false → true<br>
+                        false || true → true<br>
+                        false || false → false
+                    </div>
+                </div>
+
+                <div class="operator-card">
+                    <h3>! (НЕ)</h3>
+                    <p>Преобразует в булево и возвращает противоположное</p>
+                    <div class="code-block">
+                        !true → false<br>
+                        !false → true<br>
+                        !"" → true<br>
+                        !"hello" → false
+                    </div>
+                </div>
+            </div>
+
+            <h3>⚡ Short-circuit evaluation</h3>
+            <p>Вычисление прекращается, как только результат становится известен:</p>
+            <div class="code-block">
+                false && anything → false (anything не вычисляется)<br>
+                true || anything → true (anything не вычисляется)<br>
+                // Возвращается значение последнего вычисленного операнда
+            </div>
+
+            <div class="truthy-table">
+                <h3>❌ Ложные значения (falsy):</h3>
+                <ul>
+                    <li>false</li>
+                    <li>0</li>
+                    <li>"" (пустая строка)</li>
+                    <li>null</li>
+                    <li>undefined</li>
+                    <li>NaN</li>
+                </ul>
+                <p style="margin-top: 10px;">✅ Все остальные значения - истинные (truthy)</p>
+            </div>
+        </div>
+
+        <!-- Практика -->
+        <div class="practice-section">
+            <h2>💻 Практика</h2>
+
+            <!-- Задание 1 -->
+            <div class="task-card">
+                <div class="task-title">Задание 1: Проверка логина и пароля</div>
+                <div class="input-group">
+                    <input type="text" id="login" class="input-field" placeholder="Логин" value="user">
+                    <input type="password" id="password" class="input-field" placeholder="Пароль" value="pass">
+                    <button onclick="checkLogin()">Проверить</button>
+                </div>
+                <div id="loginResult" class="result-box">
+                    Ожидание ввода...
+                </div>
+            </div>
+
+            <!-- Задание 2 -->
+            <div class="task-card">
+                <div class="task-title">Задание 2: Первое truthy-значение</div>
+                <div class="input-group">
+                    <input type="text" id="val1" class="input-field" placeholder="Значение 1" value="0">
+                    <input type="text" id="val2" class="input-field" placeholder="Значение 2" value="false">
+                    <input type="text" id="val3" class="input-field" placeholder="Значение 3" value="hello">
+                    <button onclick="findFirstTruthy()">Найти</button>
+                </div>
+                <div id="truthyResult" class="result-box">
+                    Ожидание ввода...
+                </div>
+            </div>
+
+            <!-- Разбор примеров -->
+            <div class="task-card">
+                <div class="task-title">📊 Разбор кода из задания</div>
+                <div class="examples-section">
+                    <div class="example-item">
+                        <span class="example-code">console.log(0 || "hello")</span>
+                        <span class="example-result">→ "hello"</span>
+                        <span style="color: #666;">(0 ложный, "hello" истинный)</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="example-code">console.log(1 && 2 && 3)</span>
+                        <span class="example-result">→ 3</span>
+                        <span style="color: #666;">(все истинные, возвращается последний)</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="example-code">console.log(!"")</span>
+                        <span class="example-result">→ true</span>
+                        <span style="color: #666;">(пустая строка ложная, ! делает true)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Интерактивные примеры -->
+            <div class="task-card">
+                <div class="task-title">🎮 Попробуй сам</div>
+                <div class="input-group">
+                    <input type="text" id="expr1" class="input-field" placeholder="Выражение 1" value="0 || 'hello'">
+                    <input type="text" id="expr2" class="input-field" placeholder="Выражение 2" value="1 && 2 && 3">
+                    <input type="text" id="expr3" class="input-field" placeholder="Выражение 3" value="!''">
+                    <button onclick="evaluateExpressions()">Вычислить</button>
+                </div>
+                <div id="expressionsResult" class="result-box">
+                    Нажмите кнопку для вычисления
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Создано для изучения логических операторов в JavaScript
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
